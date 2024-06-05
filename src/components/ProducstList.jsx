@@ -16,18 +16,26 @@ function ProductsList() {
               key={product.id}
               className="block"
             >
-              <li className="card shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg overflow-hidden">
-                <div className="card-body p-4 bg-white">
+              <li className="card shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg overflow-hidden bg-white">
+                <div className="card-body p-6">
                   <h2 className="text-xl font-semibold text-gray-800 mb-2">
                     {product.title}
                   </h2>
-                  {product.images && product.images.length > 0 && (
-                    <img
-                      src={product.image}
-                      alt={product.title}
-                      className="w-full h-48 object-cover rounded-md"
-                    />
-                  )}
+                  <p className="text-gray-600 mb-4">
+                    {product.description.length > 100
+                      ? `${product.description.substring(0, 100)}...`
+                      : product.description}
+                  </p>
+                  <div className="mt-4">
+                    <span className="text-lg font-bold text-green-600">
+                      ${product.price}
+                    </span>
+                  </div>
+                  <div className="mt-2">
+                    <button className="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                      View Details
+                    </button>
+                  </div>
                 </div>
               </li>
             </Link>
